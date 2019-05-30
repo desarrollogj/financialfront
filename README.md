@@ -1,5 +1,7 @@
 # Financialfront
 
+A web frontend for [Financialapp](https://github.com/Gunnsteinn/Financialapp) service
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
 ## Development server
