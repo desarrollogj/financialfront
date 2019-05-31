@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { NgHttpLoaderModule } from 'ng-http-loader';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { CurrencyComponent } from './currency/currency.component';
 
@@ -29,7 +30,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule,
-    NgHttpLoaderModule.forRoot(),
+    AngularFontAwesomeModule,
+    NgHttpLoaderModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
