@@ -7,7 +7,7 @@ import { map, catchError, tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RestService {
-  endpoint = 'http://financialapp-v1.herokuapp.com/api/';
+  endpoint = 'https://financialapp-v1.herokuapp.com/api/';
 
   constructor(private http: HttpClient) { }
 

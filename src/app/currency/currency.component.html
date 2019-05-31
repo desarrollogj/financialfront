@@ -6,18 +6,19 @@
     </div>
     <div class="card-deck mb-3">
         <div class="row">
-            <div *ngFor="let c of currencies;" class="col-md-4 col-sm-12">
+            <div *ngFor="let c of currencies;" class="col-lg-4 col-md-12">
                 <div class="card shadow-sm mb-3">
                     <div class="card-header">
                       <h5 class="my-0 font-weight-normal">{{c.bank}}</h5>
                     </div>
                     <div class="card-body">
                       <div class="row">
-                          <div class="col-sm-4 offset-sm-4 text-right"><span class="badge badge-success">Compra</span></div>
-                          <div class="col-sm-4 text-right"><span class="badge badge-danger">Venta</span></div>
+                          <div class="col"></div>
+                          <div class="col text-right"><span class="badge badge-success">Compra</span></div>
+                          <div class="col text-right"><span class="badge badge-danger">Venta</span></div>
                       </div>
                       <div *ngFor="let e of c.exchange;" class="row">
-                          <div class="col text-left">{{e.type}}</div>
+                          <div class="col text-left">{{e.code}} <i class="fa fa-info-circle" title="{{e.type}}"></i></div>
                           <div class="col text-right"><span>$ {{e.buyRate}}</span></div>
                           <div class="col text-right"><span>$ {{e.sellRate}}</span></div>
                       </div>
