@@ -1,0 +1,4 @@
+{
+  "currencyApiBaseUrl": "https://financialapp-v1.herokuapp.com/api/",
+  "currencyPollingInterval": 300000
+}

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,6 +8,7 @@ import { NgHttpLoaderModule } from 'ng-http-loader';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { CurrencyComponent } from './currency/currency.component';
+import { AppConfigService } from './appconfig.service';
 
 const appRoutes: Routes = [
   {
@@ -33,7 +34,16 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule,
     NgHttpLoaderModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: APP_INITIALIZER,
+    multi: true,
+    deps: [AppConfigService],
+    useFactory: (appConfigService: AppConfigService) => {
+      return () => {
+        return appConfigService.loadAppConfig();
+      };
+    }
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

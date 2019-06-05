@@ -4,10 +4,13 @@
         <h1 class="display-4">Cotizaciones</h1>
         <p class="lead">Cotización de moneda extranjera por banco. En Pesos Argentinos.</p>
     </div>
+    <div *ngIf="currencies.error" class="alert alert-danger" role="alert">
+       Ocurrió un error inesperado al obtener la información. Intente nuevamente
+    </div>
     <div *ngIf="currencies.length == 0" class="alert alert-primary" role="alert">
         Obteniendo cotizaciones. Aguarde un instante...
     </div>
-    <div class="card-deck mb-3">
+    <div *ngIf="currencies.length > 0" class="card-deck mb-3">
         <div class="row">
             <div *ngFor="let c of currencies;" class="col-lg-4 col-md-12">
                 <div class="card shadow-sm mb-3">

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RestService } from '../rest.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
+import { AppConfigService } from '../appconfig.service';
 
 @Component({
   selector: 'app-currency',
@@ -11,11 +11,12 @@ import { switchMap, map } from 'rxjs/operators';
 })
 export class CurrencyComponent implements OnInit {
   currencies: any = [];
-  pollingInterval = 300000; // 5 minutes
+  pollingInterval: number;
 
-  constructor(public rest:RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public rest: RestService, private config: AppConfigService) { }
 
   ngOnInit() {
+    this.pollingInterval = this.config.currencyPollingInterval;
     this.getCurrencies();
     this.getPolledCurrencies();
   }

@@ -1,23 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, of, empty } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
+import { AppConfigService } from './appconfig.service';
+import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RestService {
-  endpoint = 'https://financialapp-v1.herokuapp.com/api/';
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private config: AppConfigService) { }
 
   getCurrencies(): Observable<any> {
-    return this.http.get(this.endpoint + 'currency').pipe(
-      map(this.extractData));
+    const endpoint = this.config.currencyApiBaseUrl + 'currency';
+    return this.http.get(endpoint).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
   }
 
   private extractData(res: Response) {
     let body = res;
     return body || { };
+  }
+
+  private handleError(err: HttpErrorResponse) {
+    let error: string;
+    if (err.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      error = 'An error occurred: ' + err.error.message;
+    } else {
+      // The backend returned an unsuccessful response code.
+      error = `Rest returned code ${err.status}` + ` body was: ${err.message}`;
+    }
+
+    return of({ 'error': error });
   }
 }
