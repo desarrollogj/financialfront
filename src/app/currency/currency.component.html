@@ -5,10 +5,10 @@
         <p class="lead">Cotización de moneda extranjera por banco. En Pesos Argentinos.</p>
     </div>
     <div *ngIf="currencies.error" class="alert alert-danger" role="alert">
-       Ocurrió un error inesperado al obtener la información. Intente nuevamente
+      <span><i class="fa fa-exclamation-circle"></i> Ocurrió un error inesperado al obtener la información. Intente nuevamente</span>
     </div>
     <div *ngIf="currencies.length == 0" class="alert alert-primary" role="alert">
-        Obteniendo cotizaciones. Aguarde un instante...
+      <span><i class="fa fa-info-circle"></i> Obteniendo cotizaciones. Aguarde un instante...</span>
     </div>
     <div *ngIf="currencies.length > 0" class="card-deck mb-3">
         <div class="row">
@@ -20,8 +20,8 @@
                     <div class="card-body">
                       <div class="row">
                           <div class="col"></div>
-                          <div class="col text-right"><span class="badge badge-success">Compra</span></div>
-                          <div class="col text-right"><span class="badge badge-danger">Venta</span></div>
+                          <div class="col text-right"><span class="badge badge-info">Compra</span></div>
+                          <div class="col text-right"><span class="badge badge-success">Venta</span></div>
                       </div>
                       <div *ngFor="let e of c.exchange;" class="row">
                           <div class="col text-left">{{e.code}} <i class="fa fa-info-circle" title="{{e.type}}"></i></div>
