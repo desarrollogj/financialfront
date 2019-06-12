@@ -4,15 +4,15 @@
         <h1 class="display-4">Cotizaciones</h1>
         <p class="lead">Cotización de moneda extranjera por banco. En Pesos Argentinos.</p>
     </div>
-    <div *ngIf="currencies.error" class="alert alert-danger" role="alert">
-      <span><i class="fa fa-exclamation-circle"></i> Ocurrió un error inesperado al obtener la información. Intente nuevamente</span>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      <span><i class="fa fa-exclamation-circle"></i> Ocurrió un error inesperado al obtener la información mas reciente. Se intentará nuevamente en unos instantes</span>
     </div>
-    <div *ngIf="currencies.length == 0" class="alert alert-primary" role="alert">
+    <div *ngIf="currentCurrencies.length == 0" class="alert alert-primary" role="alert">
       <span><i class="fa fa-info-circle"></i> Obteniendo cotizaciones. Aguarde un instante...</span>
     </div>
-    <div *ngIf="currencies.length > 0" class="card-deck mb-3">
+    <div *ngIf="currentCurrencies.length > 0" class="card-deck mb-3">
         <div class="row">
-            <div *ngFor="let c of currencies;" class="col-lg-4 col-md-12">
+            <div *ngFor="let c of currentCurrencies;" class="col-xl-4 col-lg-12">
                 <div class="card shadow-sm mb-3">
                     <div class="card-header">
                       <h5 class="my-0 font-weight-normal">{{c.bank}}</h5>
@@ -25,8 +25,8 @@
                       </div>
                       <div *ngFor="let e of c.exchange;" class="row">
                           <div class="col text-left">{{e.code}} <i class="fa fa-info-circle" title="{{e.type}}"></i></div>
-                          <div class="col text-right"><span>$ {{e.buyRate}}</span></div>
-                          <div class="col text-right"><span>$ {{e.sellRate}}</span></div>
+                          <div class="col text-right"><span><i appCurrencyValueChange currentVariation="{{e.buyRateVariation}}"></i> $ {{e.buyRate}}</span></div>
+                          <div class="col text-right"><span><i appCurrencyValueChange currentVariation="{{e.sellRateVariation}}"></i> $ {{e.sellRate}}</span></div>
                       </div>
                     </div>
                 </div>

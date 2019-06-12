@@ -9,6 +9,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { CurrencyComponent } from './currency/currency.component';
 import { AppConfigService } from './appconfig.service';
+import { CurrencyValueChangeDirective } from './currency-value-change.directive';
 
 const appRoutes: Routes = [
   {
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CurrencyComponent
+    CurrencyComponent,
+    CurrencyValueChangeDirective
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -3,7 +3,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, of, empty } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { AppConfigService } from './appconfig.service';
-import { stringify } from '@angular/compiler/src/util';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +11,17 @@ export class RestService {
   constructor(private http: HttpClient, private config: AppConfigService) { }
 
   getCurrencies(): Observable<any> {
-    const endpoint = this.config.currencyApiBaseUrl + 'currency';
+    const baseUrl = this.config.currencyApiBaseUrl;
+    //const baseUrl = (Math.random() > 0.2) ? this.config.currencyApiBaseUrl : "";
+    const endpoint = baseUrl + 'currency';
+    
     return this.http.get(endpoint).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
   private extractData(res: Response) {
-    let body = res;
-    return body || { };
+    return res || { };
   }
 
   private handleError(err: HttpErrorResponse) {
