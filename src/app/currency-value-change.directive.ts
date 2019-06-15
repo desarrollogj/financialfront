@@ -23,7 +23,10 @@ export class CurrencyValueChangeDirective implements OnChanges {
     } else if (this.currentVariation == "down") {
       icon = "fa-arrow-down"
       color = "green";
-    } 
+    } else {
+      icon = "fa-equals"
+      color = "grey";
+    }   
     
     this.renderer.removeAttribute(this.element.nativeElement, "class");
     this.renderer.removeAttribute(this.element.nativeElement, "style");

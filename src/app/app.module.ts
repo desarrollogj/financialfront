@@ -3,10 +3,7 @@ import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
-
 import { NgHttpLoaderModule } from 'ng-http-loader';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
 import { CurrencyComponent } from './currency/currency.component';
 import { AppConfigService } from './appconfig.service';
 import { CurrencyValueChangeDirective } from './currency-value-change.directive';
@@ -33,7 +30,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserModule,
     HttpClientModule,
-    AngularFontAwesomeModule,
     NgHttpLoaderModule.forRoot()
   ],
   providers: [{
