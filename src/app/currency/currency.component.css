@@ -1,3 +1,13 @@
 .currency-card {
-    min-width: 300px;
+    min-width: 400px;
+}
+
+@media (min-width: 992px) {
+  .currency-card {
+      max-width: 520px;
+  }
+}
+
+.no-wrap {
+  white-space:nowrap;
 }

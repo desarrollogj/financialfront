@@ -1,4 +1,5 @@
 {
   "currencyApiBaseUrl": "https://financialapp-v1.herokuapp.com/api/",
+  "currencyApiBaseUrlDev": "http://localhost:8080/api/",
   "currencyPollingInterval": 120000
 }
