@@ -17,18 +17,18 @@
       </div>
       <div class="card-body">
         <div class="row">
-          <div class="col"></div>
-          <div class="col"></div>
-          <div class="col text-right"><span class="badge badge-info">Compra</span></div>
-          <div class="col text-right"><span class="badge badge-success">Venta</span></div>
-          <div class="col text-right"><span class="badge badge-success">Venta+IP</span></div>
+          <div class="col col-sm-2 p-0"></div>
+          <div class="col col-sm-1 p-0"></div>
+          <div class="col col-sm-3 px-1 py-0 text-right"><span class="badge badge-info">Compra</span></div>
+          <div class="col col-sm-3 px-1 py-0 text-right"><span class="badge badge-success">Venta</span></div>
+          <div class="col col-sm-3 px-1 py-0 text-right"><span class="badge badge-success">Venta+IP</span></div>
         </div>
         <div *ngFor="let e of c.exchange" class="row">
-          <div class="col text-left">{{e.code}} <i class="fa fa-info-circle" title="{{e.type}}"></i></div>
-          <div class="col text-right"><i appCurrencyValueChange currentVariation="{{e.sellRateVariation}}"></i></div>
-          <div class="col text-right"><span class="no-wrap">$ {{e.buyRate}}</span></div>
-          <div class="col text-right"><span class="no-wrap">$ {{e.sellRate}}</span></div>
-          <div class="col text-right"><span class="no-wrap">$ {{e.sellRateWithTax}}</span></div>
+          <div class="col col-sm-2 p-0 text-left">{{e.code}} <i class="fa fa-info-circle" title="{{e.type}}"></i></div>
+          <div class="col col-sm-1 p-0 text-right"><i appCurrencyValueChange currentVariation="{{e.sellRateVariation}}"></i></div>
+          <div class="col col-sm-3 px-1 py-0 text-right"><span class="no-wrap">$ {{e.buyRate}}</span></div>
+          <div class="col col-sm-3 px-1 py-0 text-right"><span class="no-wrap">$ {{e.sellRate}}</span></div>
+          <div class="col col-sm-3 px-1 py-0 text-right"><span class="no-wrap">$ {{e.sellRateWithTax}}</span></div>
         </div>
       </div>
     </div>
