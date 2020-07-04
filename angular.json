@@ -141,5 +141,8 @@
       }
     }
   },
-  "defaultProject": "Financialfront"
+  "defaultProject": "Financialfront",
+  "cli": {
+    "analytics": "040fbc0e-ace5-4f07-ac87-2fd7cdb649e4"
+  }
 }
